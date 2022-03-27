@@ -37,13 +37,15 @@ if __name__ == "__main__":
 
     def findCount(graph, lookFor, count):
         if graph[lookFor] == ['no other']:
-            return 1;
+            return 0;
         else:
             for listBag in graph[lookFor]:
-                amount = listBag[0];
+                amount = int(listBag[0]);
                 type = listBag[2:];
+                bagCount = (amount + (amount * (findCount(graph, type, count))))
+            count += bagCount;
 
 
     # findIn(graph, "shiny gold", path);
     
-    pprint.pprint(findCount(graph, "shiny gold", count))
+    pprint.pprint(findCount(graph, "1 shiny gold", count))
