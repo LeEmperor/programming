@@ -35,17 +35,25 @@ if __name__ == "__main__":
                     path.append(key);
     
 
-    def findCount(graph, lookFor, count):
-        if graph[lookFor] == ['no other']:
-            return 0;
+    def findCount(graph, lookFor):
+        # begin base case
+        allEmpty = True;
+        count = 0;
+        for bagType in graph[lookFor]:
+            useThis = bagType[2:];
+            if graph[useThis][0] != 'no other':
+                allEmpty = False;
+        if allEmpty:
+            for bagType in graph[lookFor]:
+                count += int(bagType[0]);
+            return count;
         else:
-            for listBag in graph[lookFor]:
-                amount = int(listBag[0]);
-                type = listBag[2:];
-                bagCount = (amount + (amount * (findCount(graph, type, count))))
-            count += bagCount;
+            return (f"((({bagType}))) needs recursing");
 
-
-    # findIn(graph, "shiny gold", path);
+        # end recurse
     
-    pprint.pprint(findCount(graph, "1 shiny gold", count))
+
+    pprint.pprint(graph);
+    print(f"dark olive has {findCount(graph, 'dark olive')} many");
+    print(f"shiny gold has {findCount(graph, 'shiny gold')} many");
+    
