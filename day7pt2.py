@@ -42,7 +42,9 @@ if __name__ == "__main__":
         count = 0;
         for bagType in graph[lookFor]:
             useThis = bagType[2:];
-            if graph[useThis][0] != 'no other':
+            if graph[useThis][0] == 'no other':
+                continue;
+            else:
                 allEmpty = False;
         if allEmpty:
             for bagType in graph[lookFor]:
@@ -63,6 +65,5 @@ if __name__ == "__main__":
     
 
     # pprint.pprint(graph);
-    print(f"dark olive has {findCount(graph, 'dark olive')} many\n");
-    print(f"shiny gold has {findCount(graph, 'shiny gold')} many");
+    print(f"mirrored lavender has {findCount(graph, 'mirrored lavender')} many");
     
