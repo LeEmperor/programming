@@ -36,6 +36,7 @@ if __name__ == "__main__":
     
 
     def findCount(graph, lookFor):
+        print(f"looking for : {lookFor}");
         # begin base case
         allEmpty = True;
         count = 0;
@@ -48,12 +49,20 @@ if __name__ == "__main__":
                 count += int(bagType[0]);
             return count;
         else:
-            return (f"((({bagType}))) needs recursing");
+            print(f"beginning recurse");
+            for grandParent in graph[lookFor]:
+                print(f"grandParent = {grandParent}");
+                numBag = int(grandParent[0]);
+                count += numBag;
+                print(f"numBag = {numBag}")
+                count += (numBag * findCount(graph, grandParent[2:]));
+                print(f"count is now: {count}\n");
+            return count;
 
         # end recurse
     
 
-    pprint.pprint(graph);
-    print(f"dark olive has {findCount(graph, 'dark olive')} many");
+    # pprint.pprint(graph);
+    print(f"dark olive has {findCount(graph, 'dark olive')} many\n");
     print(f"shiny gold has {findCount(graph, 'shiny gold')} many");
     
