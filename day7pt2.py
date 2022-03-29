@@ -1,4 +1,4 @@
-import pprint;
+import pprint
 
 if __name__ == "__main__":
     
@@ -24,46 +24,23 @@ if __name__ == "__main__":
             if child.count("shiny gold") == 0:
                 graph[parent] = [child.replace(".", "").strip()];
 
-    
-    def findIn(graph, lookFor, path):
-        # base case
 
-        # bruhbruh
-        for key in graph:
-            for contains in graph[key]:
-                if contains.count(lookFor) > 0:
-                    path.append(key);
-    
-
-    def findCount(graph, lookFor):
-        print(f"looking for : {lookFor}");
-        # begin base case
-        allEmpty = True;
+    def howManyIn(graph, lookFor):
         count = 0;
-        for bagType in graph[lookFor]:
-            useThis = bagType[2:];
-            if graph[useThis][0] == 'no other':
-                continue;
-            else:
-                allEmpty = False;
-        if allEmpty:
-            for bagType in graph[lookFor]:
-                count += int(bagType[0]);
+
+        # base case
+        if graph[lookFor][0] == 'no other':
             return count;
+        # end base case
+
+        # begin recurse
         else:
-            print(f"beginning recurse");
-            for grandParent in graph[lookFor]:
-                print(f"grandParent = {grandParent}");
-                numBag = int(grandParent[0]);
-                count += numBag;
-                print(f"numBag = {numBag}")
-                count += (numBag * findCount(graph, grandParent[2:]));
-                print(f"count is now: {count}\n");
+            for bagType in graph[lookFor]:
+                useThis = bagType[2:];
+                count += int(bagType[0])
+                count += (int(bagType[0]) * howManyIn(graph, useThis));
             return count;
-
         # end recurse
-    
+        
 
-    # pprint.pprint(graph);
-    print(f"mirrored lavender has {findCount(graph, 'mirrored lavender')} many");
-    
+    pprint.pprint(howManyIn(graph, 'shiny gold'));

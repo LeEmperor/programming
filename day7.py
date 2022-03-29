@@ -30,6 +30,6 @@ if __name__ == "__main__":
                 if contains.count(lookFor) > 0:
                     path.append(key);
     
-    # findIn(graph, "shiny gold", path);
+    # findIn(len(setgraph, "shiny gold", path)));
     
     pprint.pprint(graph);
