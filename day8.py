@@ -5,6 +5,7 @@ from re import L;
 if __name__ == "__main__":
     data = [];
     cleanInstructions = [];
+    global accum;
     accum = 0;
     lineNum = 0;
 
@@ -12,18 +13,35 @@ if __name__ == "__main__":
         for instruction in f:
             data.append(instruction.strip());
     
-    def doThing(lineNum):
+    def doThing(data, lineNum, accum):
+        print(f"processing: {data[lineNum]}")
         if data[lineNum].count('nop') > 0:
-            print(f"blank line, performing next");
-            doThing(lineNum+1);
+            print(f"{data[lineNum]} is blank");
+            doThing(data, lineNum+1, accum);
         elif data[lineNum].count('jmp') > 0:
+            print(f"{data[lineNum]} is a jump");
             instruction = data[lineNum];
-            core, quanta = instruction.split(" ");
-            #look for sign next
+            signedQuanta = instruction[4:];
+            sign = signedQuanta[0];
+            quanta = int(signedQuanta[1:]);
+            if sign == "+":
+                doThing(data, lineNum+quanta, accum);
+            else:
+                doThing(data, lineNum-lineNum, accum);
+        else:
+            print(f"{data[lineNum]} is an addline");
+            instruction = data[lineNum];
+            signedQuanta = instruction[4:];
+            sign = signedQuanta[0];
+            quanta = int(signedQuanta[1:]);
+            if sign == "+":
+                print(f"adding {quanta} much");
+                accum += quanta;
+                print(accum);
+            else:
+                accum -= quanta;
 
-            #we have sign, subtract lineNim to recurse next
-            print(f"jumping line to {}")
-        pass;
-    
     for line in data:
-        doThing(lineNum)
+        doThing(data, lineNum, accum);
+        print(f"{accum} \n");
+        lineNum+=1;
