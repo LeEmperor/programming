@@ -1,2 +1,0 @@
-bruh = "bruh";
-print(bruh);
