@@ -45,14 +45,3 @@ if __name__ == "__main__":
        index += indexAdd;
 
     pprint.pprint(f"accum is {accum}");
-    junk = indexList.pop();
-    junk2 = indexList.pop();
-    for index in reversed(indexList):
-        dumIndex = 
-        line = data[index];
-        core, junk3 = line.split(" ");
-        if core == "jmp":
-            print(f"index {index} needs to be replace");
-            break;
-
-
