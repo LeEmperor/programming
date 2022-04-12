@@ -19,8 +19,6 @@ typedef vector<int> VI;
 typedef vector<string> VS;
 typedef vector<PII> VPII;
 typedef vector<VI> VVI;
-typedef map<int, int> MPII;
-typedef set<int> SETI;
 typedef long int l;
 typedef unsigned long int ui;
 typedef long long int ll;
@@ -57,9 +55,9 @@ int main() {
 		VS input;
 		while(dummy--) {
 			cin >> line;		
-			VS.PB(line);
+			input.PB(line);
 		}
-		cout << solve(VS) << "\n";
+		cout << solve(input) << "\n";
 
 	}
 }

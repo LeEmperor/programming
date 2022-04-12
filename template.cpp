@@ -9,7 +9,7 @@ using namespace std;
 #define PB push_back
 #define exp 1e9
 #define all(x) (x).begin(), (x).end()
-#define nL "\n
+#define nL "\n";
 #define first a
 #define second b
 #define sz(x) (int((x).size())) 
@@ -19,8 +19,6 @@ typedef vector<int> VI;
 typedef vector<string> VS;
 typedef vector<PII> VPII;
 typedef vector<VI> VVI;
-typedef map<int, int> MPII;
-typedef set<int> SETI;
 typedef long int l;
 typedef unsigned long int ui;
 typedef long long int ll;
@@ -28,7 +26,7 @@ typedef unsigned long long int ull;
 
 void solve(string input) {
 
-
+	cout << "line is: " << input << "\n";
 
 }
 
@@ -39,7 +37,7 @@ int main() {
 	string line;
 	while(testcases--) {
 		cin >> line; 
-		cout << solve(line) << "\n";	
+		solve(line);	
 	}	
 }
 
