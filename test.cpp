@@ -1,29 +1,43 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
 #include <string>
+#include <math.h>
+#include <cstring>
+using namespace std;
 
-class car {
-	// parameters
-	public:
-		std::string brand;
-		std::string model;
-		int year;
+#define MP make_pair
+#define PB push_back
+#define exp 1e9
+#define nL "\n"
+#define first a
+#define second b
+#define sz(x) (int((x).size())) 
 
-	// methods
-	public:
-		// initialization constructor
-		car(std::string x, std::string y, int z) {
-			brand = x;
-			model = y;
-			year = z;
-		}
-};
+typedef pair<int, int> PII;
+typedef vector<int> VI;
+typedef vector<string> VS;
+typedef vector<PII> VPII;
+typedef vector<VI> VVI;
+typedef long int l;
+typedef unsigned long int ui;
+typedef long long int ll;
+typedef unsigned long long int ull;
 
-int main() {
+void solve(string input) {
 
-	std::ios_base::sync_with_stdio(0); std::cin.tie(0); std::cout.tie(0);
-	car bruh1("BMW", "X5", 1999);
-	car bruh2("Ford", "Pontiac", 2005);
-	std::cout << "car1 brand is: " << bruh1.brand << "\n";
-	return 0;
+	cout << "line is: " << input << "\n";
 
 }
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
+	int testcases;
+	string line;
+	while(testcases--) {
+		cin >> line; 
+		solve(line);	
+	}	
+}
+

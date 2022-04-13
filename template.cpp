@@ -3,13 +3,13 @@
 #include <vector>
 #include <string>
 #include <math.h>
+#include <cstring>
 using namespace std;
 
 #define MP make_pair
 #define PB push_back
 #define exp 1e9
-#define all(x) (x).begin(), (x).end()
-#define nL "\n";
+#define nL "\n"
 #define first a
 #define second b
 #define sz(x) (int((x).size())) 
