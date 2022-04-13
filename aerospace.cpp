@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <math.h>
+#include <cstring>
 using namespace std;
 
 #define MP make_pair
@@ -40,8 +41,13 @@ class starship {
 		}
 };
 
-string solve(VS input) {
-	return "nothing";	
+void solve(VS input) {
+	char *ptr;
+	for(string s : input) {
+		cout << "line: " << s << "\n";
+		ptr = strtok(s, ",");
+		// this is random shit code dont use this for now while i learn about pointers
+	}
 }
 
 int main() {
@@ -50,6 +56,9 @@ int main() {
 	int testcases;
 	int dummy;
 	string line;
+
+	cin >> testcases;
+	cout << "testcases inputted\n";
 	while(testcases--) {
 		cin >> dummy;
 		VS input;
@@ -57,7 +66,7 @@ int main() {
 			cin >> line;		
 			input.PB(line);
 		}
-		cout << solve(input) << "\n";
+		solve(input);
 
 	}
 }
