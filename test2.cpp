@@ -9,7 +9,6 @@ using namespace std;
 #define MP make_pair
 #define PB push_back
 #define exp 1e9
-#define all(x) (x).begin(), (x).end()
 #define nL "\n"
 #define first a
 #define second b
@@ -25,47 +24,16 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-class starship {
-	public:
-		string NAME; 
-		string CLASS;
-		int X;
-		int Y;
-	
-	public:
-		starship(string x, string y, int z, int w) {
-			NAME = x;
-			CLASS = y;
-			X = z;
-			Y = w;
-		}
-};
-
-void solve(VS input) {
-	for(string s : input) {
-		
-	}
-
-}
-
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
-	int testcases;
-	int dummy;
-	string line;
 
-	cin >> testcases;
-	cout << "testcases inputted\n\n -------------------------------------------------------------------";
-	while(testcases--) {
-		cin >> dummy;
-		VS input;
-		while(dummy--) {
-			cin >> line;		
-			input.PB(line);
-		}
-		solve(input);
+    int i = 3;
+    int* ptr = &i; // value at pointer ptr is the address of i
 
-	}
+    *ptr = 7;
+    cout << i << " | " << *ptr << " | " << "\n";
+
+
 }
 

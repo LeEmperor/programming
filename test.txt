@@ -1,9 +1,4 @@
-nop +0
-acc +1
-jmp +4
-acc +3
-jmp -3
-acc -99
-acc +1
-jmp -4
-acc +6
+3
+DOOM_A:123,1444
+TEST_B:12,145
+BOGEE_C:52,345
