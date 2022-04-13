@@ -42,11 +42,11 @@ class starship {
 };
 
 void solve(VS input) {
-	char *ptr;
 	for(string s : input) {
 		cout << "line: " << s << "\n";
-		ptr = strtok(s, ",");
-		// this is random shit code dont use this for now while i learn about pointers
+		string NAME = s.substr(0, s.find("_"));
+		char CLASS = s.at(s.find('_')+1);
+		cout << "name is: " << NAME << " class is: " << CLASS << "\n\n";
 	}
 }
 
@@ -58,7 +58,7 @@ int main() {
 	string line;
 
 	cin >> testcases;
-	cout << "testcases inputted\n";
+	cout << "testcases inputted\n\n -------------------------------------------------------------------";
 	while(testcases--) {
 		cin >> dummy;
 		VS input;
