@@ -22,9 +22,24 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-void solve(string input) {
+class _____ {
+    // ctrl + f2 to refactor somehing that is highlighted
+    public:
+        string TEMPSTRING;
+        char TEMPCHAR;
+        int TEMPINT;
+        string ORIGINAL_LINE;
+    
+    public:
+        _____(string x) {
+            ORIGINAL_LINE = x;
+            TEMPSTRING = "";
+            TEMPCHAR = NULL;
+            TEMPINT = NULL;
+        }
+};
 
-	cout << "line is: " << input << "\n";
+void solve(string input) {
 
 }
 

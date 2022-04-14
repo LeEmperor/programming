@@ -10,8 +10,6 @@ using namespace std;
 #define PB push_back
 #define exp 1e9
 #define nL "\n"
-#define first a
-#define second b
 #define sz(x) (int((x).size())) 
 
 typedef pair<int, int> PII;
