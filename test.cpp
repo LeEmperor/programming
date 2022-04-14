@@ -43,21 +43,34 @@ class starship {
 };
 
 void solve(vector<starship> starships) {
-	for(int i = 0; i < starships.size(); i++) {
-		starship toRemove = starships[0];
-		int temp;
-		for(int i = 1; i < starships.size(); i++) {
-			if (starships[i].X < toRemove.X) {
-				toRemove = starships[i];
-				temp = i;
+	while(starships.size() > 0) {
+		starship smallest = starships[0];
+		int temp = 0;
+		for(int i = 0; i < starships.size(); i++) {
+			if(starships[i].NAME != smallest.NAME) {
+				if(starships[i].X < smallest.X) {
+					smallest = starships[i];
+					temp = i;
+				}
 			}
 		}
-		starships.erase(starships.begin() + temp); // need the index of toRemove
-		cout << "murder: " << toRemove.NAME << "\n";
-	}
-
-	for(starship s : starships) {
-		cout << "the last remaining should be: " << s.NAME << "\n";
+		cout << "Destroyed Ship: " << starships[temp].NAME << " xLoc: " << starships[temp].X << "\n";
+		starships.erase(starships.begin() + temp);
+		//begin coordinate editor
+		for(int i = 0;i < starships.size(); i++) {
+			switch(starships[i].CLASS) {
+				case 'A':
+					starships[i].X -= 10;
+					break;
+				case 'B':
+					starships[i].X -= 20;
+					break;
+				case 'C':
+					starships[i].X -= 30;
+					break;
+			}
+		}
+		//end coordinate editor
 	}
 }
 

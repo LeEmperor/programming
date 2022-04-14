@@ -31,7 +31,7 @@ int main() {
     int i = 3;
     int* ptr = &i; // value at pointer ptr is the address of i
 
-    *ptr = 7;
+    
     cout << i << " | " << *ptr << " | " << "\n";
 
 
