@@ -52,6 +52,13 @@ void solve(vector<starship> starships) {
 					smallest = starships[i];
 					temp = i;
 				}
+				// correction for equal X coords
+				if(starships[i].X == smallest.X) {
+					if(starships[i].Y > smallest.Y) {
+						smallest = starships[i];
+						temp = i;
+					}
+				}
 			}
 		}
 		cout << "Destroyed Ship: " << starships[temp].NAME << " xLoc: " << starships[temp].X << "\n";
