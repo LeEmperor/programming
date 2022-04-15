@@ -22,16 +22,21 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-void solve(ll numerator, ll denominator) {
-// implement a counter to see if we have gone to 10 partial pieces
+void solve(ll numerator, ll denominator, int increm) {
     if(denominator % numerator != 0) {
-        cout << denominator / numerator << " ";
-        int temp = denominator - ((denominator / numerator) * numerator);
-        denominator = numerator;
-        numerator = temp;
-        solve(numerator, denominator);
+        if(increm < 10) {
+            cout << denominator / numerator << " ";
+            ll temp = denominator - ((denominator / numerator) * numerator);
+            denominator = numerator;
+            numerator = temp;
+            increm++;
+            solve(numerator, denominator, increm);
+        } else {
+            cout << "\n";
+        }
+        
     } else {
-        cout << denominator / numerator << " we done\n";
+        cout << denominator / numerator << "\n";
     }
 }
 
@@ -45,11 +50,14 @@ int main() {
 
 	while(testcases--) {
 		cin >> line; 
-        ll numerator = stoi(line.substr(line.find(".") + 1));
+        // this doenst even do anything so i dunno whats happening
+        ll numerator = stoll(line.substr(line.find(".") + 1));
         ll denominator = pow(10, (line.length() - line.find(".") - 1));
+        int increm = 0;
         if(line.at(0) != '.') {
             cout << line.at(0) << " ";
+            increm++;
         }
-        solve(numerator, denominator);
+        solve(numerator, denominator, increm);
 	}	
 }
