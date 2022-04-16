@@ -25,7 +25,8 @@ typedef unsigned long long int ull;
 void solve(ll numerator, ll denominator, int increm) {
     if(denominator % numerator != 0) {
         if(increm < 10) {
-            cout << denominator / numerator << " ";
+            // cout << denominator / numerator << " ";
+            cout << " " << denominator / numerator;
             ll temp = denominator - ((denominator / numerator) * numerator);
             denominator = numerator;
             numerator = temp;
@@ -36,7 +37,7 @@ void solve(ll numerator, ll denominator, int increm) {
         }
         
     } else {
-        cout << denominator / numerator << "\n";
+        cout << " " << denominator / numerator << "\n";
     }
 }
 
@@ -55,7 +56,8 @@ int main() {
         ll denominator = pow(10, (line.length() - line.find(".") - 1));
         int increm = 0;
         if(line.at(0) != '.') {
-            cout << line.at(0) << " ";
+            string temp0 = line.substr(0, line.find("."));
+            cout << temp0;
             increm++;
         }
         solve(numerator, denominator, increm);
