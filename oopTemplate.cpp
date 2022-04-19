@@ -24,6 +24,10 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
+struct ___ {
+
+};
+
 class _____ {
     // ctrl + f2 to refactor somehing that is highlighted
     public:

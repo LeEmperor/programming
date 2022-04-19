@@ -29,7 +29,18 @@ struct ___ {
 };
 
 void solve(string input) {
+	string original = input.substr(0, input.find('|'));
+	string flip = input.substr(input.find('|') + 1);
 
+	cout << "original: " << original << nL;
+	cout << "flip: " << flip << nL;
+
+	reverse(original.begin(), original.end());
+	if(original == flip) {
+		cout << "chillin\n";
+	} else {
+		cout << "not chilling\n";
+	}
 }
 
 int main() {

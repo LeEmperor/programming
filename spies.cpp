@@ -24,11 +24,17 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-struct ___ {
-
+struct point {
+	int x;
+	int y;
 };
 
-void solve(string input) {
+struct wall {
+	point start;
+	point end;
+};
+
+void solve(point spy, point camera, vector<wall> walls, int nWalls) {
 
 }
 
@@ -38,11 +44,30 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
-	string line;
-
+	int x, y, nWalls;
+		
 	while(testcases--) {
-		cin >> line; 
-		solve(line);	
+		cin >> x >> y;
+		point spy = {x, y};
+
+		cin >> x >> y;
+		point camera = {x, y};
+
+		cin >> nWalls;
+
+		vector<wall> walls;
+
+		while(nWalls--) {
+			cin >> x >> y;
+			point wallStart = {x, y};
+
+			cin >> x >> y;
+			point wallEnd = {x, y};
+
+			wall bruh = {wallStart, wallEnd};
+			walls.PB(bruh);
+		}
+
+		solve(spy, camera, walls, nWalls);
 	}	
 }
-

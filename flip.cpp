@@ -24,12 +24,13 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-struct ___ {
-
+struct point {
+	int x;
+	int y;
 };
 
-void solve(string input) {
-
+void solve(vector<string> input, int rows, int columns) {
+	
 }
 
 int main() {
@@ -38,11 +39,16 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
+	int rows, columns;
 	string line;
+	vector<string> input;
 
 	while(testcases--) {
-		cin >> line; 
-		solve(line);	
+		cin >> rows >> columns;
+		while(rows--) {
+			cin >> line;
+			input.PB(line);	
+		}
+		solve(input, rows, columns);
 	}	
 }
-
