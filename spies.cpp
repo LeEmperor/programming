@@ -58,7 +58,7 @@ void solve(point spy, point camera, vector<wall> walls, int nWalls) {
 	equation spyToCamera = {mSpyToCamera, b};
 
 	for(wall wall : walls) {
-
+		// insert here vertical line checker
 		double slopeWall = (wall.end.y - wall.start.y) / (wall.end.x - wall.start.x);
 
 		if (isless(mSpyToCamera, slopeWall) || isgreater(mSpyToCamera, slopeWall)) {
@@ -69,8 +69,8 @@ void solve(point spy, point camera, vector<wall> walls, int nWalls) {
 
 			b = wall.start.y - (slopeWall * (wall.start.x));
 			equation wallEq = {slopeWall, b};
-			point overlap = algebra(spyToCamera, wallEq);
-			
+			point solution = algebra(spyToCamera, wallEq);
+
 		}
 	}
 }
