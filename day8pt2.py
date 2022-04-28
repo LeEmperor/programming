@@ -36,7 +36,7 @@ if __name__ == "__main__":
     while(index < len(data)):
        accumAdd, indexAdd = doThing(index, data, accum, bruh, indexList);
        if index in bruh:
-           print("fucky wucky");
+           print("issue");
            break;
        else:
            bruh.add(index);
