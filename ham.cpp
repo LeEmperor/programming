@@ -24,30 +24,56 @@ typedef unsigned long int ui;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-struct ___ {
-
+struct bit {
+	bool parity;
+	int encodingVal;
+	int data;
 };
 
-void solve(int input) {
-	int l = (to_string(input)).length(); 		
-	string binaryForm = "";
-	int dummy = input;
+void solve(string input) {
+	vector<ll> powersOf2;
+	vector<bit> bruh;
+	string dummy = input;
+	int l = input.length();
+	int cnt = 0;
+	int cnt2 = 0;
 
-	// BEGIN BINARY CONVERTER
-	while(dummy != 0) {
-		if(dummy % 2 == 0) {
-			binaryForm.append("0");
-		} else {
-			binaryForm.append("1");
-		}
-		dummy /= 2;
+	for(int i = 0; i < 31; i++) {
+		powersOf2.PB(pow(2, i));
 	}
-	reverse(binaryForm.begin(), binaryForm.end());
-	// END BINARY CONVERTER
 
-	int c = count(binaryForm.begin(), binaryForm.end(), "1");
+	for(int i = 0; i < l; i++) {
+		ll use = i + 1;
+		if(count(powersOf2.begin(), powersOf2.end(), use)) {
+			bit Bit = {true};
+			bruh.PB(Bit);
+			cnt++;
+		} else {
+			bit Bit = {false};
+			bruh.PB(Bit);
+		}
+	}	
 
-	cout << "c: " << c << nL;
+	for(int i = 0; i < cnt; i++) {
+		bit Bit = {false};
+		bruh.PB(Bit);
+	}
+
+	// BEGIN ADD EMPTY PARITY BITS 	
+	for(int i = 0; i < bruh.size(); i++) {
+		bruh[i].encodingVal = (i + 1); 
+		if (bruh[i].parity == false) {
+			bruh[i].data = dummy.at(cnt2) - '0';
+			cnt2++;
+		}
+	}	
+	// END ADD EMPTY PARITY BITS 
+
+	
+
+
+
+
 }
 
 int main() {
@@ -56,7 +82,7 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
-	int line;
+	string line;
 
 	while(testcases--) {
 		cin >> line; 
