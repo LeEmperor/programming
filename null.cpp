@@ -13,7 +13,6 @@ using namespace std;
 #define exp 1e9
 #define nL "\n"
 #define sz(x) (int((x).size())) 
-#define all(x) x.begin(), x.end()
 
 typedef pair<int, int> PII;
 typedef vector<int> VI;
@@ -30,7 +29,27 @@ struct ___ {
 };
 
 void solve(string input) {
+	vector<char> vowels {'a', 'e', 'i', 'o', 'u'};
+	vector<char> use;
+	vector<int> goodString;
+	string bruh = "";
+	for(char c : input) {
+		use.PB(c);
+	}
 
+	for(int i = 0; i < input.length(); i++) {
+		if(count(vowels.begin(), vowels.end(), input.at(i)) > 0) {
+			goodString.PB(i + 1);
+			i++;
+		}
+	}
+
+	for(int i : goodString) {
+		bruh.push_back(input.at(i));
+	}
+
+	cout << bruh << nL;
+	
 }
 
 int main() {

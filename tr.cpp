@@ -29,8 +29,18 @@ struct ___ {
 
 };
 
-void solve(string input) {
+void solve(int x, int y ) {
+	int bruh;	
 
+	if(x == y) {
+		cout << "1 1" << nL;
+	} else if(x > y) {
+		cout << "0 0" << nL;
+	} else if(y % x == 0) {
+		cout << "1 " << ( y / x) << nL;
+	} else {
+		cout << "0 0" << nL;
+	}
 }
 
 int main() {
@@ -39,11 +49,11 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
-	string line;
+	int x, y;
 
 	while(testcases--) {
-		cin >> line; 
-		solve(line);	
+		cin >> x >> y; 
+		solve(x, y);	
 	}	
 }
 

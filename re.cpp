@@ -5,6 +5,7 @@
 #include <math.h>
 #include <cstring>
 #include <sstream>
+#include <map>
 using namespace std;
 // consider defining std for only string, cout, and cin 
 
@@ -29,8 +30,12 @@ struct ___ {
 
 };
 
-void solve(string input) {
-
+void solve(string s, string t) {
+	for(char c : t) {
+		if(count(s.begin(), s.end(), c) > 0) {
+			cout << -1 << nL;
+		}
+	}
 }
 
 int main() {
@@ -39,11 +44,11 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
-	string line;
+	string s, t;
 
 	while(testcases--) {
-		cin >> line; 
-		solve(line);	
+		cin >> s >> t; 
+		solve(s, t);	
 	}	
 }
 

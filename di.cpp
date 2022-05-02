@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <map>
 #include <vector>
 #include <string>
 #include <math.h>
@@ -29,8 +30,17 @@ struct ___ {
 
 };
 
-void solve(string input) {
-
+void solve(char a, char b, map<char, int> val) {
+	if(val[b] > val[a]) {
+		// b is bigger than 1
+		int stuff = 25 * (val[a] - 1);
+		int answer = stuff + val[b] - 1;
+		cout << answer << nL;
+	} else {
+		int stuff = 25 * (val[a] - 1);
+		int answer = stuff + val[b];
+		cout << answer << nL;
+	}
 }
 
 int main() {
@@ -39,11 +49,21 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
-	string line;
+	char a, b;
+
+	// maps each letter to a number;
+	map<char, int> bruh;
+	int g = 1;
+	string dummy = "abcdefghijklmnopqrstuvwxyz";
+
+	for(char c : dummy) {
+		bruh[c] = g;
+		g++;
+	}
 
 	while(testcases--) {
-		cin >> line; 
-		solve(line);	
+		cin >> a >> b;
+		solve(a, b, bruh);	
 	}	
 }
 

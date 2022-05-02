@@ -30,6 +30,35 @@ struct ___ {
 };
 
 void solve(string input) {
+	vector<char> good {' '};
+	vector<int> good2;
+	vector<int> bad;
+	string alphabet = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHHJKLZXCVBNM";
+	string numbers = "1234567890";
+
+	for(char c : alphabet) {
+		good.PB(c);
+	}
+
+	for(char c : numbers) {
+		good.PB(c);
+	}	
+
+	for(int i = 0; i < input.length(); i++) {
+		if(count(all(good), input.at(i)) > 0) {
+			// pass cuz its a chilling character
+			good2.PB(i);
+		} else {
+			bad.PB(i);
+		}
+	}
+	string solution = "";
+	for(int i : good2) {
+		solution.push_back(input.at(i));
+	}
+
+	cout << solution << nL;
+	
 
 }
 
@@ -39,11 +68,13 @@ int main() {
 
 	int testcases;
 	cin >> testcases;
-	string line;
+	cin.ignore(1);
 
 	while(testcases--) {
-		cin >> line; 
+		string line;
+		getline(cin, line);
 		solve(line);	
 	}	
+
 }
 
