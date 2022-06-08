@@ -1,9 +1,9 @@
 #include <iostream>
 #include <algorithm>
-#include <map>
 #include <vector>
 #include <string>
 #include <math.h>
+#include <set>
 #include <cstring>
 #include <sstream>
 using namespace std;
@@ -30,17 +30,30 @@ struct ___ {
 
 };
 
-void solve(char a, char b, map<char, int> val) {
-	if(val[b] > val[a]) {
-		// b is bigger than 1
-		int stuff = 25 * (val[a] - 1);
-		int answer = stuff + val[b] - 1;
-		cout << answer << nL;
-	} else {
-		int stuff = 25 * (val[a] - 1);
-		int answer = stuff + val[b];
-		cout << answer << nL;
+int solve(VI input) {
+	set<int> bruh(all(input));
+	if(bruh.size() == 1 && *bruh.begin() == 0) {
+		// case entire thing is 0
+		return 0;
+	} else if(bruh.size() == 1) {
+		// case its all j
+		return input.size();
 	}
+
+	// case there is 0 in the array:
+	for(int i : input) {
+		if (i == 0) {
+			return input.size() - 1;
+		}
+	}	
+
+	// case all unique digits
+	if(bruh.size() == input.size()) {
+		return input.size() + 1;
+	}
+
+	// case some non-uniques
+	return input.size();
 }
 
 int main() {
@@ -48,21 +61,16 @@ int main() {
 	cin.tie(0); cout.tie(0);
 
 	int testcases;
+	int i, j;
 	cin >> testcases;
-	char a, b;
-
-	// maps each letter to a number;
-	map<char, int> bruh;
-	int g = 1;
-	string dummy = "abcdefghijklmnopqrstuvwxyz";
-
-	for(char c : dummy) {
-		bruh[c] = g;
-		g++;
-	}
 
 	while(testcases--) {
-		cin >> a >> b;
-		solve(a, b, bruh);	
+		VI input;
+		cin >> i;
+		while(i--) {
+			cin >> j;
+			input.PB(j);
+		}
+		cout << solve(input) << nL;
 	}	
 }
