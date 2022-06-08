@@ -34,5 +34,8 @@ int main() {
 
 	string* ptr = &thing;
 	cout << "ptr value: " << ptr << nL;
+
+	cout << __cplusplus << nL;
+
 	return 0;
 }
