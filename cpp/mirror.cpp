@@ -17,74 +17,63 @@ typedef vector<ll> Vll;
 
 typedef pair<int,int> CRD;
 
-int bruh2(vector<string> input, vector<int> imposed, int depth, vector<pair<int, int>> coords) {
+int bruh2(vector<string> input, vector<int> imposed, int depth, vector<CRD> coords) {
 	int m = input.size();
 	int n = imposed.size();
+	int total = 0;
+
 	for(int i = 0; i < n; i++) {
-		// for every 
-		int a = coords[i].first;
-		int b = coords[i].second;
-		int gridVal = input[a][b] - '0';
+		// for every cardinal side
 
-		CRD one(b, m-a);
-		CRD two(m-a, m-b);
-		CRD three(m-b, a);
+		int cnt0 = 0;
+		int cnt1 = 0;
 
-		int cnt = 0;
+		if(input[coords[i].first][m-coords[i].first] == 0) {cnt0++;} else {cnt1++;}
+		if(input[m-coords[i].first][m-coords[i].second] == 0) {cnt0++;} else {cnt1++;}
+		if(input[m-coords[i].second][coords[i].first] == 0) {cnt0++;} else {cnt1++;}
 
-		if(input[one.first][one.second] == gridVal) {
-			// 90 degree rotation is equal to 0
-		} else {
-			cnt += 1;
-		}
-
-		if(input[two.first][two.second] == gridVal) {
-
-		}
-
-		
-
-
+		if(cnt0 > cnt1) {total += cnt1;} else if(cnt1 > cnt0) {total += cnt0;} else {total += cnt0;}	
 	}
-	return 0;
+	return total;
 }
 
 int solve(vector<string> input) {
 	int depth = input.size() / 2;
 	int sizeInput = input.size();
+	int total = 0;
+
 	for(int i = 0; i < depth; i++) {
 		// for each depth
 		vector<int> imposeThese;
 		vector<pair<int, int>> coords;
-		for(int j = i; j < (sizeInput - ((2 * i) + 1)); j++) {
+
+		for(int j = i; j < (sizeInput - i); j++) {
 			int piece = input[i][j] - '0';
+
 			imposeThese.push_back(piece);
 			pair<int, int> coord(i, j);
 			coords.push_back(coord);
 		}
-		
 
 		int change = bruh2(input, imposeThese, i, coords);
-		cout << change << nL;
-
+		total += change;
 	}
+	return total;
 }
 
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
-
 	int testcases;
-	cin >> testcases;
 
 	while(testcases--) {
 		int n;
 		cin >> n;
 		vector<string> input;
+
 		for(int i = 0; i < n; i++) {
 			string line;
 			cin >> line;
-			input.push_back(line);
 		}
 
 		cout << solve(input) << nL;
