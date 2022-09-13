@@ -16,10 +16,9 @@ typedef long long ll;
 typedef vector<ll> Vll;
 typedef pair<int, int> CRD;
 
-void solve(vector<string> input) {
+int solve(vector<string> input) {
 	int depth = input.size() / 2;
 	int m = input.size();
-
 	int answer = 0;
 
 	for(int i = 0; i < depth; i++) {
@@ -27,7 +26,7 @@ void solve(vector<string> input) {
 		int c0 = 0;
 		int c1 = 0;
 
-		for(int j = i; j < (m - i); i++) {
+		for(int j = i; j < (m - 1 - i); i++) {
 			if(input[i][m-i] == 0) {c0++;} else {c1++;}
 			if(input[m-i][m-j] == 0) {c0++;} else {c1++;}
 			if(input[m-j][j] == 0) {c0++;} else {c1++;}
@@ -40,14 +39,9 @@ void solve(vector<string> input) {
 				layerTotal += c0;
 			}
 		}
-
 		answer += layerTotal;
-
 	}
-
-	
 	return answer;
-	
 }
 
 int main() {
@@ -60,7 +54,15 @@ int main() {
 	while(testcases--) {
 		int i;
 		cin >> i;
-		solve(i);	
+		vector<string> input;
+
+		while(i--) {
+			string line;
+			cin >> line;
+			input.push_back(line);
+		}
+
+		cout << solve(input) << nL;
 	}	
 }
 

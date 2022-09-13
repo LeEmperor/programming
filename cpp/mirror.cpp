@@ -30,7 +30,7 @@ int bruh2(vector<string> input, vector<int> imposed, int depth, vector<CRD> coor
 
 		if(input[coords[i].first][m-coords[i].first] == 0) {cnt0++;} else {cnt1++;}
 		if(input[m-coords[i].first][m-coords[i].second] == 0) {cnt0++;} else {cnt1++;}
-		if(input[m-coords[i].second][coords[i].first] == 0) {cnt0++;} else {cnt1++;}
+		if(input[m-coords[i].second][coords[i].second] == 0) {cnt0++;} else {cnt1++;}
 
 		if(cnt0 > cnt1) {total += cnt1;} else if(cnt1 > cnt0) {total += cnt0;} else {total += cnt0;}	
 	}
