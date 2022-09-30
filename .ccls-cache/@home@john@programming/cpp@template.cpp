@@ -4,6 +4,7 @@
 #include <bitset> 
 #include <cmath> 
 #include <algorithm> 
+#include <set>
 using namespace std;
 
 #define nL "\n"
@@ -14,9 +15,13 @@ typedef vector<int> VI;
 typedef vector<VI> VVI;
 typedef long long ll;
 typedef vector<ll> Vll;
+typedef vector<string> VS;
+typedef vector<VS> VSS;
+typedef pair<int, int> PII;
+typedef pair<int, string> PIS;
 
-void solve(int i) {
-	
+string solve(int i) {
+	return "bruh";
 }
 
 int main() {
@@ -27,9 +32,10 @@ int main() {
 	cin >> testcases;
 
 	while(testcases--) {
-		int i;
-		cin >> i;
-		solve(i);	
+		int n;
+		cin >> n;
+		
+		cout << solve(n) << nL;
 	}	
 }
 
